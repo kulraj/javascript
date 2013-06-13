@@ -6,12 +6,21 @@
 
 <input type="checkbox" id="call" onclick="if(this.checked){checkall()}" >Check all<br>
 <input type="checkbox" id="cnone" onclick="if(this.checked){checknone()}" >Check none<br><br>
-<input type="checkbox" class="colour" value="red" >Red<br>
-<input type="checkbox" class="colour" value="green" color="green" >Green<br>
-<input type="checkbox" class="colour" value="yellow" color="yellow" >Yellow<br>
-<input type="checkbox" class="colour" value="white" color="white" >White<br>
-<input type="checkbox" class="colour" value="black" color="black" >Black<br>
-
+<div id="d1">
+<input type="checkbox" class="colour" value="red" id="red" >Red<br>
+</div>
+<div id="d2">
+<input type="checkbox" class="colour" value="green" color="green" id="green">Green<br>
+</div>
+<div id="d3">
+<input type="checkbox" class="colour" value="yellow" color="yellow" id="yellow" >Yellow<br>
+</div>
+<div id="d4">
+<input type="checkbox" class="colour" value="white" color="white" id="white">White<br>
+</div>
+<div id="d5">
+<input type="checkbox" class="colour" value="black" color="black" id="black">Black<br>
+</div>
 
 </form>
 
