@@ -1,0 +1,142 @@
+
+
+
+var table;
+var row;
+var cell;
+var textbox;
+var label;
+var save;
+var text,text1;
+var count;
+var maxrows;
+var edit;
+var del;
+var save;
+var index;
+
+function initialize()
+{
+alert("start");
+table = document.getElementById("table");
+count=0;
+maxrows=10;
+cell =new Array(maxrows);
+for(var i =0;i<maxrows;i+=1) {
+cell[i]= new Array(3);
+}
+textbox=new Array(maxrows);
+for(var i =0;i<maxrows;i+=1) {
+textbox[i]= new Array(2);
+}
+row=new Array(maxrows);
+text=new Array(maxrows);
+text1=new Array(maxrows);
+edit=new Array(maxrows);
+del=new Array(maxrows);
+save=new Array(maxrows);
+
+label = new Array(maxrows);
+for(var i=0;i<maxrows;i+=1) {
+label[i]=new Array(2);
+}
+
+
+}
+
+function editrow(countlocal)
+{
+//alert("edit");
+alert(countlocal);
+index=countlocal;
+//textbox[countlocal][0]=document.createChild("input");
+textbox[countlocal][0].value=text[countlocal].nodeValue;
+//alert("edit");
+cell[countlocal][0].replaceChild(textbox[countlocal][0],label[countlocal][0]);
+cell[countlocal][1].replaceChild(textbox[countlocal][1],label[countlocal][1]);
+//alert("hello");
+save[countlocal] = document.createElement("input");
+save[countlocal].type="button";
+save[countlocal].value="Add";
+//save[countlocal].id="save";
+save[countlocal].setAttribute("onclick","saverow(index);");
+while (cell[countlocal][2].firstChild) {
+    cell[countlocal][2].removeChild(cell[countlocal][2].firstChild);
+}
+cell[countlocal][2].appendChild(save[countlocal]);
+}
+
+function deleterow(rowid)
+{
+countlocal=parseInt(rowid);
+alert(countlocal);
+while(row[countlocal].firstChild){
+    row[countlocal].removeChild(row[countlocal].firstChild);
+}
+}
+
+function saverow(rowid)
+{
+//alert("row="+countlocal);
+countlocal=parseInt(rowid);
+//index=countlocal;
+alert(countlocal);
+label[countlocal][0]=document.createElement("label");
+text[countlocal]=label[countlocal][0].appendChild(document.createTextNode(""));
+text[countlocal].nodeValue=textbox[countlocal][0].value;
+
+cell[countlocal][0].replaceChild(label[countlocal][0],textbox[countlocal][0]);
+
+label[countlocal][1]=document.createElement("label");
+
+text1[countlocal]=label[countlocal][1].appendChild(document.createTextNode(""));
+text1[countlocal].nodeValue=textbox[countlocal][1].value;
+
+
+
+cell[countlocal][1].replaceChild(label[countlocal][1],textbox[countlocal][1]);
+
+cell[countlocal][2].removeChild(save[countlocal]);
+edit[countlocal]=cell[countlocal][2].appendChild(document.createElement("label"));
+edit[countlocal].setAttribute("onclick","editrow(this.parentNode.parentNode.id)");
+//edit.onclick="editrow();";
+edit[countlocal].appendChild(document.createTextNode("Edit"));
+cell[countlocal][2].appendChild(document.createTextNode("/"));
+del[countlocal] = cell[countlocal][2].appendChild(document.createElement("label"));
+del[countlocal].setAttribute("onclick","deleterow(this.parentNode.parentNode.id)");
+del[countlocal].appendChild(document.createTextNode("delete"));
+
+//alert(edit[countlocal].onclick);
+}
+
+function addrow()
+{
+//alert("startadd");
+
+//alert("add");
+	row[count]=document.createElement("tr");
+	for(var j=0;j<2;j++){
+		cell[count][j]=document.createElement("td");
+		textbox[count][j]=cell[count][j].appendChild(document.createElement("input"));
+		row[count].appendChild(cell[count][j]);
+	}
+	//cell[count][0].id="name";
+//cell[count][1].id="email";
+
+//alert("add");
+cell[count][2] = row[count].appendChild(document.createElement("td"));
+save[count] = cell[count][2].appendChild(document.createElement("input"));
+save[count].type="button";
+save[count].value="Add";
+//save.id="save";
+save[count].setAttribute("onclick","saverow(this.parentNode.parentNode.id);");
+//alert("add");
+row[count].id=count;
+alert(row[count].id);
+table.appendChild(row[count]);
+count += 1;
+
+}
+
+
+
