@@ -1,0 +1,60 @@
+var sun;
+var mon;
+var tues;
+var wed;
+var thur;
+var fri;
+var sat;
+var days;
+var check_no_one;
+
+function initialize() {
+    "use strict";
+    /*jslint browser:true */alert("start");
+    days = document.getElementsByClassName("day");
+    check_no_one = document.getElementById("checknone");
+}
+
+function checknone() {
+    "use strict";alert("1");
+    var index;
+    for (index = 0; index < days.length; index += 1) {
+        days[index].checked = false;
+    }
+}
+
+function check(day1) {
+    "use strict";
+    checknone.checked = false;
+    var index, days_checked, message;
+    days_checked = 0;
+    for (index = 0; index < days.length; index += 1) {
+        if (days[index].checked) {
+            days_checked += 1;
+        }
+    }
+    if (days_checked <= 3) {
+        return;
+    }
+    day1.checked = false;
+    days_checked = 0;
+    message = "Only 3 days can be selected. You have already selected ";
+    for (inex = 0; index < days.length; index += 1) {
+        if (days[index].checked) {
+            switch (days_checked) {
+            case 0:
+                break;
+            case 1:
+                message += ", ";
+                break;
+            case 2:
+                message += " and ";
+                break;
+            }
+            days_checked += 1;
+            message += days[index].value;
+        }
+    }
+    /*global alert */
+    alert(message);
+}
