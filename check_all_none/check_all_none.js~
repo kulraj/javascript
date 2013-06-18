@@ -5,6 +5,9 @@ function initialize() {
     /*jslint browser:true */
     var i;
     colours = document.getElementsByClassName("colour");
+    for (i = 0; i < colours.length; i += 1) {
+        colours[i].checked = false;
+    }
 }
 
 function check(checked) {
