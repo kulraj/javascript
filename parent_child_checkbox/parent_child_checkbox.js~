@@ -10,10 +10,11 @@ function initialize() {
 function showHide(parent_checkbox) {
     "use strict";
     /*jslint browser: true*/
-    var i, child_checkboxes, child_checkbox_container;
+    var i, child_checkboxes, child_checkbox_container, length;
     child_checkboxes = document.getElementsByClassName(parent_checkbox.id);
     child_checkbox_container = document.getElementById(parent_checkbox.id + "div");
-    for (i = 0; i < child_checkboxes.length; i += 1) {
+    length = child_checkboxes.length;
+    for (i = 0; i < length; i += 1) {
         child_checkboxes[i].checked = parent_checkbox.checked;
     }
     if (parent_checkbox.checked) {
