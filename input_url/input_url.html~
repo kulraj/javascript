@@ -1,7 +1,0 @@
-<html>
-  <head>
-    <script type="text/javascript" src="input_url.js"></script>
-  </head>
-  <body onload="urlInput()" id="box">
-  </body>
-</html>
