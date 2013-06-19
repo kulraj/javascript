@@ -1,8 +1,0 @@
-<html>
-  <head>
-     <script type="text/javascript" src="input_alert.js"></script>
-  </head>
-  <body onload="initialize()">
-  </body>
-</html>
-   
