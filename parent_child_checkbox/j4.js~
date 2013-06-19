@@ -1,0 +1,31 @@
+var str;
+var box; 
+var red, yellow, green, blue;
+var text;
+//var dar, sir;
+//var coke, pepsi, dew;
+//var v-rod, pulsar, cbz;
+
+function initialize()
+{
+alert("start");
+}
+
+function colors(colors)
+{
+//alert("colors");
+if(colors.checked)
+{
+//alert("red");
+red = document.createElement("input");
+red.setAttribute("type", "checkbox");
+//red.id="red";
+red.setAttribute("value","red");
+red.checked=true;
+//red.left=100px;
+red.appendChild(document.createTextNode("red"));
+colors.appendChild(red);
+alert(red.checked);
+}
+}
+

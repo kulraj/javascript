@@ -1,0 +1,28 @@
+<html>
+<body onload="initialize()">
+	<head>
+		<link rel="stylesheet" type="text/css" href="c4.css" />  
+			
+		<script type="text/javascript" src="j4.js"></script>  
+	</head>
+	<div>
+		<ul>
+			<li>
+				<input type="checkbox" id="colors" value="colors" onclick="colors(this)">Color
+					
+			</li>		
+			<li>
+				<input type="checkbox" id="drinks" value="drinks" onclick="drink(this)">Drinks
+			</li>
+			<li>
+				<input type="checkbox" id="movies" value="movies" onclick="movies(this)">Movies
+			</li>
+			<li>
+				<input type="checkbox" id="bikes" value="bikes" onclick="bikes(this)">bikes
+			</li>
+
+
+		</ul>
+	</div>
+</body>
+</html>

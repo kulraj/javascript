@@ -1,0 +1,17 @@
+div
+{
+height:100px;
+border-style:solid;
+overflow:auto;
+}
+
+ul
+{
+list-style:none;
+}
+
+#red
+{
+left:50%;
+visibility:visible;
+}
