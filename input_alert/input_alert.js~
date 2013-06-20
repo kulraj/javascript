@@ -13,7 +13,7 @@ function displayName() {
     namebox = document.createElement("label");
     fullname = document.createTextNode(firstname + " " + lastname);
     namebox.appendChild(fullname);
-    container = document.getElementById("container");
+    container = document.getElementById("box");
     container.appendChild(namebox);
 }
 

@@ -2,7 +2,7 @@
   <head>
     <script type="text/javascript" src="input_alert.js"></script>
   </head>
-  <body onload="initialize()" id="container">
+  <body onload="initialize()" id="box">
   </body>
 </html>
    
