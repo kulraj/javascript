@@ -17,7 +17,7 @@ function urlInput() {
         urlInput();
     }
    
-    if (!url.trim().length) {
+    if (!string.trim().length) {
         alert("empty url");
         urlInput();
     }
