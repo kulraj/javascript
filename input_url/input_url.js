@@ -10,13 +10,13 @@ function urlInput() {
     "use strict";
     /*global prompt: true*/
     /*global alert: true*/
-    
+
     url = prompt("enter url");
     if (url === null) {
         alert("empty url");
         urlInput();
     }
-   
+
     if (!url.trim().length) {
         alert("empty url");
         urlInput();
