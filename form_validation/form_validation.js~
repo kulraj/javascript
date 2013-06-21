@@ -1,6 +1,6 @@
 function isEmpty(inputfield) {
     "use strict";
-    /*global alert: true*/
+    /*global alert: true*///alert(inputfield.id);
     if (!inputfield.value.trim().length) {
         alert("enter value in " + inputfield.id);
         return 0;
@@ -63,7 +63,7 @@ function checkMinLengthAbout(about) {
 
 function validate() {
     "use strict";
-    /*jslint browser: true*/
+    /*jslint browser: true*/alert("validate");
     var login, email, name, timezone, homepage, about, notify, flag;
 
     login = document.getElementById("login");
@@ -75,7 +75,7 @@ function validate() {
     notify = document.getElementById("notify");
 
     flag = 1;
-    flag = isEmpty(login);
+    flag = isEmpty(login);alert(flag);
     if (!flag) {
         return;
     }
