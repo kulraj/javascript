@@ -1,0 +1,66 @@
+form {
+  border-style: solid;
+  width: 40%;
+  height: 74%;
+}
+
+#title {
+  width: 98%;
+  color:white;
+  background-color: green;
+  padding:5px;
+  text-align: center;
+  display: inline-block;
+}
+
+ul {
+  list-style:none;
+}
+
+ul label {
+  float: left;
+  width: 130px;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+input.wide {
+  width: 235px;
+}
+
+select {
+  width: 235px;
+}
+
+#recieve {
+  font-weight:bold;
+  font-size:13px;
+}
+
+#smallcomment {
+  font-size: 11px;
+  float:left;
+  position:relative;
+
+}
+
+#comment {
+  
+  font-size: 11px;
+  text-align: center;
+  width:100%;
+  display:inline-block;
+  position: relative;
+  right: 50px;
+  top: 20px;
+}
+
+#go {
+  position: relative;
+  left: 120px;
+  background-color: green;
+  color: white;
+  top:25px;  
+}
