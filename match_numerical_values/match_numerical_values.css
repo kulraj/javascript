@@ -1,0 +1,22 @@
+form {
+  border-style: solid;
+  width: 50%;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+label {
+  float:left;
+  width: 200px;
+}
+
+button {
+  position:relative;
+  left: 250px;
+}
