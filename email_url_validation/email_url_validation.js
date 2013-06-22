@@ -45,7 +45,8 @@ function isInvalidTimezone(timezone) {
 function validateHomePage(homepage) {
     "use strict";
     var expression;
-    expression = "^((https?:)?//)?(www.)?[a-zA-Z0-9]+[.][a-zA-Z]+[0-9]*[a-zA-Z]*[.][a-zA-Z]{2,4}$";
+    expression = "^((https|ftp|http)?://)?(www.)?[a-zA-Z0-9]+[.](com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|co.[a-zA-Z]{2})$";
+
     if (!homepage.value.match(expression)) {
         alert("please enter valid url");
         return 0;
