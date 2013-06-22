@@ -12,12 +12,7 @@ function urlInput() {
     /*global alert: true*/
 
     url = prompt("enter url");
-    if (url === null) {
-        alert("empty url");
-        urlInput();
-    }
-
-    if (!url.trim().length) {
+    if (url === null || !url.trim().length) {
         alert("empty url");
         urlInput();
     }
