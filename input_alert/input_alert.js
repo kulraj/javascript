@@ -1,48 +1,40 @@
-var namebox,
-    fullname,
-    container,
-    name,
-    firstname,
-    lastname;
+var firstname, lastname;
 
 function displayName() {
     "use strict";
     /*jslint browser: true*/
     /*global alert: true*/
-    alert("welcome " + firstname + " " + lastname);
-    namebox = document.createElement("label");
-    fullname = document.createTextNode(firstname + " " + lastname);
-    namebox.appendChild(fullname);
+    var container, fullname;
+    fullname = firstname + " " + lastname;
+    alert("Welcome " + fullname);
     container = document.getElementById("container");
-    container.appendChild(namebox);
+    container.innerHTML = fullname;
 }
+
+function isEmpty(name) {
+    "use strict";
+    return (name !== null && name.trim().length);
+}
+
 
 function enterName(count) {
     "use strict";
     /*global prompt: true*/
-    var i, flag = 0;
+    var name;
     if (!count) {
         name = prompt("enter first name");
-    } else {
-        name = prompt("enter last name");
-    }
-    if (name === null) {
-        enterName(count);
-    }
-    for (i = 0; i <  name.length; i += 1) {
-        if (name[i] !== " ") {
-            flag = 1;
-        }
-    }
-    if (!flag) {
-        enterName(count);
-    }
-    if (!count) {
         firstname = name;
     } else {
+        name = prompt("enter last name");
         lastname = name;
     }
+
+    //name = name.trim();
+    if (!isEmpty(name)) {
+        enterName(count);
+    }
 }
+
 
 function initialize() {
     "use strict";
