@@ -3,18 +3,19 @@ function subdomainName(link, domain) {
     "use strict";
     /*global alert: true*/
     var subdomain;
-    subdomain = link.replace(domain, "");
-    subdomain = subdomain.replace(".", "");
-
-    if (subdomain.length) {
-        alert("subdomain: " + subdomain);
+    if (domain === link) {
+        return;
     }
+
+    subdomain = link.replace("." + domain, "");
+    alert("subdomain: " + subdomain);
+
 }
 
 function domainName(url) {
     "use strict";
     var expression_for_link, expression_for_domain, linkarray, link, domain;
-    expression_for_link = "://(www.)?(.[^/]+)/";
+    expression_for_link = "://(.[^/]+)/";
     linkarray = url.value.match(expression_for_link);
     link = linkarray[linkarray.length - 1];
 
