@@ -15,12 +15,12 @@ function subdomainName(link, domain) {
 function domainName(url) {
     "use strict";
     var expression_for_link, expression_for_domain, linkarray, link, domain;
-    expression_for_link = "://(.[^/]+)/";
-    linkarray = url.value.match(expression_for_link);
+    expression_for_link = "://(.[^/]+)/?";
+    linkarray = url.value.match(expression_for_link);//alert(linkarray);
     link = linkarray[linkarray.length - 1];
 
-    expression_for_domain = "[a-zA-Z0-9]+[.](com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}[/])";
-    domain = url.value.match(expression_for_domain)[0];
+    expression_for_domain = "[^.]+[.](com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2})$";
+    domain = link.match(expression_for_domain)[0];
     alert("domain: " + domain);
     subdomainName(link, domain);
 }
