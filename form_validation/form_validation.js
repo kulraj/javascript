@@ -63,6 +63,7 @@ function checkMinLengthAbout(about) {
 function validate() {
     "use strict";
     /*jslint browser: true*/
+    /*jslint bitwise: true*/
     var login, email, name, timezone, homepage, about, notify, flag, form;
 
     form = document.getElementById("form");
@@ -76,31 +77,17 @@ function validate() {
 
     flag = 1;
     flag = isEmpty(login);
-    flag = flag && isEmpty(email);
-    flag = flag && isEmpty(name);
-    flag = flag && isInvalidTimezone(timezone);
-    flag = flag && isEmpty(homepage);
-    flag = flag && isEmpty(about);
-    if (!flag) {
-        return;
-    }
+    flag = flag & isEmpty(email);
+    flag = flag & isEmpty(name);
+    flag = flag & isInvalidTimezone(timezone);
+    flag = flag & isEmpty(homepage);
+    flag = flag & isEmpty(about);
 
-    flag = validateEmail(email);
-    if (!flag) {
-        return;
-    }
+    flag = flag & validateEmail(email);
+    flag = flag & validateName(name);
+    flag = flag & validateHomePage(homepage);
 
-    flag = validateName(name);
-    if (!flag) {
-        return;
-    }
-
-    flag = validateHomePage(homepage);
-    if (!flag) {
-        return;
-    }
-
-    flag = checkMinLengthAbout(about);
+    flag = flag & checkMinLengthAbout(about);
     if (!flag) {
         return;
     }
