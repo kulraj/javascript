@@ -8,44 +8,11 @@ function isEmpty(inputfield) {
     return 1;
 }
 
-function validateEmail(email) {
-    "use strict";
-    var expression = "[a-zA-Z]+[0-9]*[a-zA-Z]*@[a-zA-Z]+[0-9]*[a-zA-Z]*[.][a-z]{2,4}";
-    if (!email.value.match(expression)) {
-        alert("Please enter valid email");
-        return 0;
-    }
-    return 1;
-}
-
-function validateName(name) {
-    "use strict";
-    var i, char;
-    for (i = 0; i < name.value.length; i += 1) {
-        char = name.value.charAt(i);
-        if ((char < 'A' || char > 'z' || (char > 'Z' && char < 'a')) && char !== ' ') {
-            alert("Enter valid name");
-            return 0;
-        }
-    }
-    return 1;
-}
-
 function isInvalidTimezone(timezone) {
     "use strict";
     //invalid timezone is at index 0
     if (!timezone.selectedIndex) {
         alert("Please select a time zone");
-        return 0;
-    }
-    return 1;
-}
-
-function validateHomePage(homepage) {
-    "use strict";
-    var expression = "[a-zA-Z0-9]+[.][a-zA-Z]{2,4}";
-    if (!homepage.value.match(expression)) {
-        alert("please enter valid url");
         return 0;
     }
     return 1;
@@ -82,10 +49,6 @@ function validate() {
     flag = flag & isInvalidTimezone(timezone);
     flag = flag & isEmpty(homepage);
     flag = flag & isEmpty(about);
-
-    flag = flag & validateEmail(email);
-    flag = flag & validateName(name);
-    flag = flag & validateHomePage(homepage);
 
     flag = flag & checkMinLengthAbout(about);
     if (!flag) {

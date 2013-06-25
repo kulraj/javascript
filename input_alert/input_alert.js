@@ -13,7 +13,7 @@ function displayName() {
 
 function isEmpty(name) {
     "use strict";
-    return (name !== null && name.trim().length);
+    return !(name !== null && name.trim().length);
 }
 
 
@@ -30,7 +30,8 @@ function enterName(count) {
     }
 
     //name = name.trim();
-    if (!isEmpty(name)) {
+    if (isEmpty(name)) {
+        alert("Please enter some text");
         enterName(count);
     }
 }

@@ -7,7 +7,7 @@
     <form id="form">
       <ul>
         <li>
-          
+          <label>Enter URL</label> 
           <input type="text" id="url"/>
         </li>
       </ul>

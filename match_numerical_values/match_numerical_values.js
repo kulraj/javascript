@@ -8,7 +8,7 @@ function checkNumber() {
 
     result.value = !isNaN(number.value);
 
-    if (!isNaN(number.value)) {
+    if (result.value === true) {
         form.submit();
     }
 }
