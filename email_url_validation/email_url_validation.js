@@ -10,7 +10,7 @@ function isEmpty(inputfield) {
 
 function validateEmail(email) {
     "use strict";
-    var expression = "^[a-zA-Z][a-zA-Z]*[0-9]*[a-zA-Z]*@[a-zA-Z]+[0-9]*[a-zA-Z]*[.][a-z]{2,4}$";
+    var expression = "^[^@]+@[a-zA-Z]+[0-9]*[a-zA-Z]*[.][a-z]{2,4}$";
     if (!email.value.match(expression)) {
         alert("Please enter valid email");
         return 0;
@@ -45,7 +45,7 @@ function isInvalidTimezone(timezone) {
 function validateHomePage(homepage) {
     "use strict";
     var expression;
-    expression = "^((https|ftp|http)?://)?(www.)?[a-zA-Z0-9]+[.](com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|co.[a-zA-Z]{2})$";
+    expression = "^((https|ftp|http)?://)?(www.)?[^.]+[.]([^.]+)?[.](com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|co.[a-zA-Z]{2})$";
 
     if (!homepage.value.match(expression)) {
         alert("please enter valid url");
@@ -66,8 +66,9 @@ function checkMinLengthAbout(about) {
 function validate() {
     "use strict";
     /*jslint browser: true*/
-    var login, email, name, timezone, homepage, about, notify, flag;
+     var login, email, name, timezone, homepage, about, notify, flag, form;
 
+    form = document.getElementById("form");
     login = document.getElementById("login");
     email = document.getElementById("email");
     name = document.getElementById("name");
@@ -78,52 +79,17 @@ function validate() {
 
     flag = 1;
     flag = isEmpty(login);
-    if (!flag) {
-        return;
-    }
+    flag = flag & isEmpty(email);
+    flag = flag & isEmpty(name);
+    flag = flag & isInvalidTimezone(timezone);
+    flag = flag & isEmpty(homepage);
+    flag = flag & isEmpty(about);
 
-    flag = isEmpty(email);
-    if (!flag) {
-        return;
-    }
+    flag = flag & validateEmail(email);
+    flag = flag & validateName(name);
+    flag = flag & validateHomePage(homepage);
 
-    flag = validateEmail(email);
-    if (!flag) {
-        return;
-    }
-
-    flag = isEmpty(name);
-    if (!flag) {
-        return;
-    }
-
-    flag = validateName(name);
-    if (!flag) {
-        return;
-    }
-
-    flag = isInvalidTimezone(timezone);
-    if (!flag) {
-        return;
-    }
-
-    flag = isEmpty(homepage);
-    if (!flag) {
-        return;
-    }
-
-    flag = validateHomePage(homepage);
-    if (!flag) {
-        return;
-    }
-
-    flag = isEmpty(about);
-    if (!flag) {
-        return;
-    }
-
-    flag = checkMinLengthAbout(about);
-
+    flag = flag & checkMinLengthAbout(about);
     if (!flag) {
         return;
     }
@@ -131,4 +97,6 @@ function validate() {
     if (notify.checked) {
         alert("recieve notification");
     }
+
+    form.submit();
 }
