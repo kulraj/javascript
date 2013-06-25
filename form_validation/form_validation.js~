@@ -86,7 +86,7 @@ function validate() {
     }
 
     flag = validateEmail(email);
-    if (!flag) {
+     if (!flag) {
         return;
     }
 

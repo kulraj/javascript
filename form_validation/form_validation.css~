@@ -1,7 +1,7 @@
 form {
   border-style: solid;
   width: 40%;
-  padding-bottom:20px;
+
 }
 
 #title {
