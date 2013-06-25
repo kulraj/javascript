@@ -29,8 +29,8 @@
         <option value="Ireland">Ireland</option>
         <option value="Italy">Italy</option>
       </select>
-      <button type="button" id="addButton" onclick="shiftCountries(1)">add&gt;</button>
-      <button type="button" id="removeButton" onclick="shiftCountries(0)"> &lt;remove</button>      
+      <button type="button" id="addButton" onclick="shiftCountries(0)">add&gt;</button>
+      <button type="button" id="removeButton" onclick="shiftCountries(1)"> &lt;remove</button>      
       <select id="countriesRight" multiple >
       </select>
     </form>

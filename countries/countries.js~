@@ -10,13 +10,13 @@ function modifyLists(sourceList, targetList) {
     }
 }
 
-function shiftCountries(leftToRight) {
+function shiftCountries(choice) {
     "use strict";
     var leftList, rightList, sourceList, targetList;
     leftList = document.getElementById("countriesLeft");
     rightList = document.getElementById("countriesRight");
 
-    if (leftToRight) {
+    if (!choice) {
         sourceList = leftList;
         targetList = rightList;
     } else {

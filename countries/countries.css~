@@ -1,4 +1,4 @@
-#countriesRight {
+#countriessecondlist {
   position: relative;
   right: 60px;
 }
@@ -7,13 +7,13 @@ select {
   width: 150px;
 }
 
-#addButton {
+#addbutton {
   position: relative;
   top: -40px;
   left: 3px;
 }
 
-#removeButton {
+#removebutton {
   position: relative;
   right: 60px;  
 }
