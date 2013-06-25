@@ -4,6 +4,7 @@ function openUrl() {
     "use strict";
     /*jslint browser: true*/
     window.open(url, "mywindow", "width=400px,height=450px, menubar=0, scrollbars=no, status=0, titlebar=0,toolbar=0",true);
+    //mywindow.enableScrolling(false);
 }
 
 function urlInput() {
