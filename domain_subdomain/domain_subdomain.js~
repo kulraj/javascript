@@ -10,8 +10,8 @@ function domainName(urlObject) {
     link = RegExp.$2;
 
     regex_for_domain_subdomain = "([^/]*)[.]([^.]+.[^.]{2,4})$";
-    domain = link.match(regex_for_domain_subdomain);
-    if (!domain) {  //given pattern does not match means no subdomain
+    domain = link.match(regex_for_domain_subdomain); 
+    if(!domain) {  //given pattern does not match means no subdomain
         domain = link;
         alert("domain: " + domain);
         return;

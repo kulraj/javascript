@@ -17,7 +17,7 @@ label {
 }
 
 #urlTextBox {
-  width: 300px;
+  width: 500px;
   display: inline-block;
 }
 
