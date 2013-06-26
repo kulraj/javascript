@@ -16,7 +16,7 @@ label {
   width: 200px;
 }
 
-#submit {
+button {
   position:relative;
   left: 250px;
 }
