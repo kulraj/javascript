@@ -1,8 +1,0 @@
-function checkNumber(form) {
-    "use strict";
-    /*jslint browser: true*/
-    var is_numeric;
-    is_numeric = !isNaN(form.numberTextBox.value);
-    form.result.value = is_numeric;
-    return is_numeric;
-}
