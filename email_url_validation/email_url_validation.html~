@@ -1,7 +1,7 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="email_url_validation.css"/>
-    <script type="text/javascript" src="email_url_validation.js"></script>
+    <link rel="stylesheet" type="text/css" href="form_validation.css"/>
+    <script type="text/javascript" src="form_validation.js"></script>
   </head>
   <body>
     <form id="form" onsubmit="return validate(this);">
