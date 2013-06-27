@@ -14,7 +14,7 @@ div div {
   width: 98%;
 }
 
-div div:hover {
+div div: hover {
   background-color: blue;
   color: white;
 }

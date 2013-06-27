@@ -39,7 +39,7 @@ function checkName() {
     var i, array_names, count = 0;
     clearNames();
     array_names = [];
-    for (i = 0; i < nameList.length; i += 1) {
+    for (i = 0; i < namelist.length; i += 1) {
         if (nameList[i].name.toUpperCase().indexOf(nameTextbox.value.toUpperCase()) === 0) {
             array_names[count] = nameList[i].name;
             count += 1;
