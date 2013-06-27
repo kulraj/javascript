@@ -31,17 +31,20 @@ function validate(form) {
     "use strict";
     /*jslint browser: true*/
     /*jslint bitwise: true*/
-    var flag;
+    var flag, i;
 
     flag = 1;
-    flag = isEmpty(form.login);
-    flag &= isEmpty(form.email);
-    flag &= isEmpty(form.name);
+    for (i = 0; i < 6; i += 1) {
+        flag &= isEmpty(form.elements[i]);
+        if (i === 3) {
+            continue;
+        }
+    }
+    
     flag &= isInvalidTimezone(form.timezone);
-    flag &= isEmpty(form.homepage);
-    flag &= isEmpty(form.about);
 
     flag &= checkMinLengthAbout(form.about);
+
     if (!flag) {
         return false;
     }
