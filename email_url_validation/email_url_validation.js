@@ -52,17 +52,16 @@ function validate(form) {
     "use strict";
     /*jslint browser: true*/
     /*jslint bitwise: true*/
-    var flag;
+    var flag = 1, i = 0;
 
-    flag = 1;
-    flag = isEmpty(form.login);
-    flag &= isEmpty(form.email);
+    while (i < 6) {
+        flag &= isEmpty(form.elements[i]);
+        i += 1;
+    }
+
     flag &= validateEmail(form.email);
-    flag &= isEmpty(form.name);
     flag &= isInvalidTimezone(form.timezone);
-    flag &= isEmpty(form.homepage);
     flag &= validateHomePage(form.homepage);
-    flag &= isEmpty(form.about);
 
     flag &= checkMinLengthAbout(form.about);
     if (!flag) {
