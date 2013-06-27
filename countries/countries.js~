@@ -3,7 +3,7 @@ function modifyLists(sourceList, targetList) {
     /*jslint browser: true*/
     while (sourceList.selectedIndex >= 0) {
         targetList.appendChild(sourceList[sourceList.selectedIndex]);
-    }
+      }
 }
 
 function shiftCountries(leftToRight) {
