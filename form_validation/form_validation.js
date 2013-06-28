@@ -31,24 +31,20 @@ function validate(form) {
     "use strict";
     /*jslint browser: true*/
     /*jslint bitwise: true*/
-    var flag = 1, i = 0;
+    var flag = 1;
 
-    while (i < 6) {
+    for (var i = 0; i < 6; i += 1) {
         flag &= isEmpty(form.elements[i]);
-        i += 1;
     }
 
     flag &= isInvalidTimezone(form.timezone);
 
     flag &= checkMinLengthAbout(form.about);
 
-    if (!flag) {
-        return false;
-    }
-
-    if (form.notify.checked) {
-        alert("recieve notification");
+    if (form.notify.checked && flag) {
+        return true;
     } else {
+        alert("recieve notification");
         return false;
     }
 }
