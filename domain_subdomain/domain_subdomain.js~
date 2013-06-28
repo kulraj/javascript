@@ -6,7 +6,7 @@ function domainName(urlObject) {
 
     regex_for_link = "(https?|ftp)?(?:://)?([^/]+)/?";
 
-    urlObject.value.match(regex_for_link);
+    link=urlObject.value.match(regex_for_link);alert(link);
     link = RegExp.$2;
 
     regex_for_domain_subdomain = "([^/]*)[.]([^.]+.[^.]{2,4})$";
