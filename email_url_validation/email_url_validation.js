@@ -30,7 +30,7 @@ function isInvalidTimezone(timezone) {
 
 function validateHomePage(homepage) {
     "use strict";
-    var regex_for_homepage = /^(https|ftp|http)?([:][/][/])?(\w+[.-]?)*\w+[.][a-z]{2,4}([/]|$)/i;
+    var regex_for_homepage = /^(https?|ftp)?([:][/][/])?(\w+[.-]?)*\w+[.][a-z]{2,4}([/][^/]+)*[/]?$/i;
 
     if (!homepage.value.match(regex_for_homepage)) {
         alert("please enter valid url");
