@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="arithmetic_quiz.css"/>
+    <script type="text/javascript" src="arithmetic_quiz.js"></script>
+  </head>
+  <body onload="initialize()">
+    <ul>
+      <li>
+        <label id="question">question</label>
+        <input type="text" id="answerTextbox"/>
+        <label id="timer">20</label>
+      </li>
+      <li>
+        <button type="button" id="submit" onclick="checkAnswer()" > Submit Question </button>
+      </li>
+      <li>
+        <label id="score" class="result"></label>
+      </li>
+      <li>
+        <label id="answers" class="result"></label>
+      </li>
+    </ul>
+  </body>
+</html>
+
