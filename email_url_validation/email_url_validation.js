@@ -64,13 +64,11 @@ function validate(form) {
     flag &= validateHomePage(form.homepage);
 
     flag &= checkMinLengthAbout(form.about);
-    if (!flag) {
-        return false;
-    }
 
-    if (form.notify.checked) {
-        alert("recieve notification");
+    if (form.notify.checked  && flag) {
+        return true;
     } else {
+        alert("recieve notification");
         return false;
     }
 }
