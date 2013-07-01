@@ -1,10 +1,10 @@
-var question_number = 1,
+var question_number = 0,
     score = 0,
     timeOutObject,
-    questions_array = [],
-    results_array = [],
     HtmlStringAnswers = "<ul>",
-    timer;
+    timer,
+    json_questions = [],
+    operator;
 
 function clearAndNext() {
     "use strict";
@@ -14,9 +14,15 @@ function clearAndNext() {
     nextQuestion();
 }
 
+function generateQuestionString(local_question_number) {
+    "use strict";
+    return ("Q" + parseInt(local_question_number + 1, 10) + ") " + json_questions[local_question_number].operand1 + " " + json_questions[local_question_number].operator + " " + json_questions[local_question_number].operand2 + " = ");
+}
+
 function addQuestionToIncorrectList() {
     "use strict";
-    HtmlStringAnswers += "<li>" + questions_array[question_number - 1] + " Correct Answer: " + results_array[question_number - 1] + "</li>";
+    HtmlStringAnswers += "<li>" + generateQuestionString(question_number);//question
+    HtmlStringAnswers +=  json_questions[question_number].result + "</li>";//answer
 }
 
 function myTimer(timeLeft) {
@@ -44,17 +50,17 @@ function startTimer() {
     /*jslint browser: true*/
     timer = document.getElementById("timer");
     var timeLeft = 20;
-    timeOutObject = setInterval(function() {timeLeft = myTimer(timeLeft); }, 1000);
+    timeOutObject = setInterval(function() {timeLeft = myTimer(timeLeft); }, 1000);// timer for 20 seconds
 }
 
 function checkAnswer() {
     "use strict";
     var answerTextbox;
-    if (question_number > 20) {
+    if (question_number >= 20) {
         return;
     }
     answerTextbox = document.getElementById("answerTextbox");
-    if (parseInt(results_array[question_number - 1], 10) === parseInt(answerTextbox.value, 10)) {
+    if (parseInt(json_questions[question_number].result, 10) === parseInt(answerTextbox.value, 10)) {
         score += 1;
     } else {
         addQuestionToIncorrectList();
@@ -76,55 +82,78 @@ function displayResult() {
 
 function nextQuestion() {
     "use strict";
-    var operand1, operand2, question, choice_for_operator, questionLabel, result, wrong_answer_box;
+    var question, questionLabel, wrong_answer_box;
 
     questionLabel = document.getElementById("question");
     wrong_answer_box = document.getElementById("answers");
 
-    if (question_number > 20) {
+    if (question_number >= 20) {
         HtmlStringAnswers += "</ul>";
         wrong_answer_box.innerHTML = HtmlStringAnswers;
         displayResult();
         return;
     }
+    question = generateQuestionString(question_number);
+    questionLabel.innerHTML = question;
+    startTimer();
+}
 
-    operand1 = Math.floor(Math.random() * 20);
+function generateOperand() {
+    "use strict";
+    return Math.floor(Math.random() * 20);
+}
+
+function generateOperatorChoice(operand2) {
+    "use strict";
+    var choice_for_operator;
     do {
-        operand2 = Math.floor(Math.random() * 20);
         choice_for_operator = Math.floor(Math.random() * 4);
-    } while (choice_for_operator === 3 && operand2 === 0); //prevent divide by 0 question
+    } while (operand2 === 0 && choice_for_operator === 3); //prevent divide by 0 question
+    return choice_for_operator;
+}
 
-    question = "Q" + question_number + ") " + operand1;
+function generateResult(operand1, operand2, choice_for_operator) {
+    "use strict";
+    var result;
     switch (choice_for_operator) {
     case 0:
-        question += "+";
+        operator = "+";
         result = operand1 + operand2;
         break;
     case 1:
-        question += "-";
+        operator = "-";
         result = operand1 - operand2;
         break;
     case 2:
-        question += "*";
+        operator = "*";
         result = operand1 * operand2;
         break;
     case 3:
-        question += "/";
+        operator = "/";
         result = Math.floor(operand1 / operand2);
         break;
     }
-    question += operand2 + " = ?";
-    questionLabel.innerHTML = question;
-    questions_array[question_number - 1] = question;
-    results_array[question_number - 1] = result;
-
-    startTimer();
+    return result;
 }
+
+function generateQuestions() {
+    "use strict";
+    var operand1, operand2, result, choice_for_operator, i;
+
+    for (i = 0; i < 20; i += 1) {
+        operand1 = generateOperand();
+        operand2 = generateOperand();
+        choice_for_operator = generateOperatorChoice(operand2);
+        result = generateResult(operand1, operand2, choice_for_operator); //choice is also converted to operator
+
+        json_questions.push({"operand1": operand1, "operand2": operand2, "operator": operator, "result": result});
+    }
+}
+
 
 function initialize() {
     "use strict";
     alert("please enter only the integer part for the division questions' answer. You have 20 questions with 20 seconds per question. Good luck! :-)");
+    generateQuestions();
     nextQuestion();
 }
-
-
